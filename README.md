@@ -1,4 +1,4 @@
-### Nombre del Juego
+### Snake
 
 ![capturaJuego](assets/capturaJuego.png)
 
@@ -6,10 +6,9 @@
 
 Integrantes:
 
-- Juana Azurduy
-- Alicia Moreau
-- Joe Balachi
-- Benedict Arnold
+- Tomas Cowes
+- Ezequiel Rodas
+- Tomas Sanchez
 
 #### Descripción e instrucciones
 
