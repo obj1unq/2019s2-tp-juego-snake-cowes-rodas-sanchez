@@ -1,5 +1,19 @@
 import wollok.game.*
+import snake.*
+import configuracion.*
 
-program nombreDeSuJuego {
+program snake {
+	//  CONFIG	
+	game.title("Snake")
+	game.height(9)
+	game.width(9)
+	game.ground("ground.png")
+	config.configurarTeclas()
+	game.onTick(500, "Movimiento del Snake", {snake.mover()})
+
+	//  VISUALES
+ 	game.addVisual(snake)
+
+ 	//  COMIENZA
 	game.start()
 }
