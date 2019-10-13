@@ -1,7 +1,7 @@
 import wollok.game.*
 
 object snake {
-	var property direccionDeMovimiento = self.position().up(1)
+	var property direccionDeMovimiento = game.center()
 	var property position = game.center()
 	const property image = "player.png" // Cambiar por una viborita una vez que tengamos las imagenes
 	

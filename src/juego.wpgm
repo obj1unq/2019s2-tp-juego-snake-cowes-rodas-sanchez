@@ -13,6 +13,7 @@ program snake {
 
 	//  VISUALES
  	game.addVisual(snake)
+ 	game.showAttributes(snake)
 
  	//  COMIENZA
 	game.start()
