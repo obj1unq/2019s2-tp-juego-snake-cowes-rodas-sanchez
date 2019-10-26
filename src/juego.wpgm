@@ -9,7 +9,7 @@ program snake {
 	game.width(9)
 	game.ground("ground.png")
 	config.configurarTeclas()
-	game.onTick(500, "Movimiento del Snake", {snake.mover()})
+	game.onTick(500, "Movimiento del Snake", {snake.actualizarMovimiento()})
 
 	//  VISUALES
  	game.addVisual(snake)
