@@ -1,6 +1,8 @@
 import wollok.game.*
 import snake.*
 import configuracion.*
+import comestibles.*
+import aparicionesDeElementos.*
 
 program snake {
 	//  CONFIG	
@@ -9,12 +11,17 @@ program snake {
 	game.width(9)
 	game.ground("ground.png")
 	config.configurarTeclas()
+
 	game.onTick(500, "Movimiento del Snake", {snake.actualizarMovimiento()})
 
 	//  VISUALES
  	game.addVisual(snake)
  	game.showAttributes(snake)
+ 	game.addVisualIn(sanAntonio, game.at(4,8))
 
  	//  COMIENZA
+	configurarColiciones.coliciones()
 	game.start()
+	
+	
 }
