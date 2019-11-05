@@ -12,12 +12,16 @@ program snake {
 	game.ground("ground.png")
 	config.configurarTeclas()
 
-	game.onTick(500, "Movimiento del Snake", {snake.actualizarMovimiento()})
+	game.onTick(500, "Movimiento del Snake", {
+		snake.actualizarMovimiento()
+		cola.actualizarMovimiento()
+	})
 
 	//  VISUALES
  	game.addVisual(snake)
  	game.showAttributes(snake)
  	game.addVisualIn(sanAntonio, game.at(4,8))
+ 	game.addVisual(cola)
 
  	//  COMIENZA
 	configurarColiciones.coliciones()
