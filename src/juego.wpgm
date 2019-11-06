@@ -14,14 +14,18 @@ program snake {
 
 	game.onTick(500, "Movimiento del Snake", {
 		snake.actualizarMovimiento()
+		primerElementoDelCuerpo.actualizarMovimiento()
 		cola.actualizarMovimiento()
+		
 	})
 
 	//  VISUALES
  	game.addVisual(snake)
  	game.showAttributes(snake)
- 	game.addVisualIn(sanAntonio, game.at(4,8))
+ 	game.addVisual(primerElementoDelCuerpo)
  	game.addVisual(cola)
+ 	game.addVisualIn(sanAntonio, game.at(4,8))
+ 	
 
  	//  COMIENZA
 	configurarColiciones.coliciones()

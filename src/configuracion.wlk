@@ -18,6 +18,6 @@ object config {
 
 object configurarColiciones{
 	method coliciones(){
-		game.onCollideDo(snake,{algo=>algo.esComidoPor(snake)})
+		game.onCollideDo(partesDelCuerpo,{algo=>algo.esComidoPor(partesDelCuerpo)})
 	}
 }
