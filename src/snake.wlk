@@ -23,8 +23,8 @@ object snake {
 	method controlarBordes() {
 		if (position.x() == 9) { position = game.at(0, position.y()) }
 		else if (position.y() == 9) { position = game.at(position.x(), 0) }
-		else if (position.x() == 0) { position = game.at(9, position.y()) }
-		else if (position.y() == 0) { position = game.at(position.x(), 9) }
+		else if (position.x() == -1) { position = game.at(8, position.y()) }
+		else if (position.y() == -1) { position = game.at(position.x(), 8) }
 	}
 }
 
