@@ -4,82 +4,70 @@ import configuracion.*
 import aparicionesDeElementos.*
 
 object snake {
-	var property direccionDeMovimiento = "Arriba" // Para empezar moviendose
+	var property direccionDeMovimiento = norte
 	var property position = game.center()
-	var property image = "cabeza2.png" // Cambiar por una viborita una vez que tengamos las imagenes
-	var property crecimiento=0
-	var property ultimaPosicion=game.center()
+	var property image = "cabezaFalopa.png"
+	var property crecimiento = 0
+	var property ultimaPosicion = game.center()
 
-	method actualizarMovimiento() { // Faltaria agregarle los bordes al tablero
-		if (direccionDeMovimiento == "Arriba") { 
-			ultimaPosicion=position
-			position = position.up(1)
-			
-		}
-		else if (direccionDeMovimiento == "Abajo") { 
-			ultimaPosicion=position
-			position = position.down(1)
-		}
-		else if (direccionDeMovimiento == "Derecha") { 
-			ultimaPosicion=position
-			position = position.right(1)
-		}
-		else if (direccionDeMovimiento == "Izquierda") { 
-			ultimaPosicion=position
-			position = position.left(1)
-		}
-	}
+	method actualizarMovimiento() {
+		    self.controlarBordes()
+			ultimaPosicion = position
+			position = direccionDeMovimiento.nuevaPosicion(self)
+	}		
 	
 	method crecer(cantidadDePuntos){
 		crecimiento += 2
 	}
+	
+	method controlarBordes() {
+		if (position.x() == 9) { position = game.at(0, position.y()) }
+		else if (position.y() == 9) { position = game.at(position.x(), 0) }
+		else if (position.x() == 0) { position = game.at(9, position.y()) }
+		else if (position.y() == 0) { position = game.at(position.x(), 9) }
+	}
 }
 
 object cola{
-	var property image="sanAntonio.png"
-
-	var property position = primerElementoDelCuerpo.ultimaPosicion()	
+	var property image="cuerpoColaFalopa.png"
+    var property position = primerElementoDelCuerpo.ultimaPosicion()	
 	
 	method actualizarMovimiento(){
 		position = primerElementoDelCuerpo.ultimaPosicion()
 	}
 }
 
-object partesDelCuerpo {
-	var property partes=[primerElementoDelCuerpo]
-	
-	method crecer(){
-		partes.add (new PartesDelCuerpo(position=partes.last().ultimaPosicion()))
-	}
-	
-	method actualizarMovimiento(){
-		partes.foreach({parte => parte.actualizar()})
-	}
-	
-}
-
 object primerElementoDelCuerpo{
-	const property image="cabeza2.png"
-	var property ultimaPosicion=game.center()
-
+	const property image = "cuerpoColaFalopa.png"
+	var property ultimaPosicion= game.center()
 	var property position = snake.ultimaPosicion()	
 	
 	method actualizarMovimiento(){
-		ultimaPosicion=position
+		ultimaPosicion = position
 		position = snake.ultimaPosicion()
-		
-	}
-	
-}
-
-class PartesDelCuerpo {
-	var property image="SnakeCabeza.png"
-	var property ultimaPosicion = game.center()
-	var property position = game.center()
-	
-	method actualizar(elementoAnterior){
-		ultimaPosicion=position
-		position = elementoAnterior.ultimaPosicion()
 	}
 }
 
+object norte {
+	//const direccionOpuesta = sur
+	
+	method nuevaPosicion(snake) = snake.position().up(1)
+}
+
+object sur {
+	//const direccionOpuesta = norte
+	
+	method nuevaPosicion(snake) = snake.position().down(1)
+}
+
+object este {
+	//const direccionOpuesta = oeste
+	
+	method nuevaPosicion(snake) = snake.position().right(1)
+}
+
+object oeste {
+	//const direccionOpuesta = este
+	
+	method nuevaPosicion(snake) = snake.position().left(1)
+}
