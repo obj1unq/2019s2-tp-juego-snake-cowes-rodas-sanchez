@@ -5,10 +5,15 @@ import comestibles.*
 
 object config {
 	method configurarTeclas() {
-		keyboard.left().onPressDo({ snake.direccionDeMovimiento(oeste) })
-		keyboard.right().onPressDo({ snake.direccionDeMovimiento(este) })
-		keyboard.up().onPressDo({ snake.direccionDeMovimiento(norte) })
-		keyboard.down().onPressDo({ snake.direccionDeMovimiento(sur) })
+		keyboard.left().onPressDo({self.controlarMovimiento(oeste)})
+		keyboard.right().onPressDo({ self.controlarMovimiento(este) })
+		keyboard.up().onPressDo({ self.controlarMovimiento(norte) })
+		keyboard.down().onPressDo({ self.controlarMovimiento(sur) })
+	}
+	
+	method controlarMovimiento(direccion) {
+		if (snake.direccionDeMovimiento() == direccion.direccionOpuesta()) {}
+			else {snake.direccionDeMovimiento(direccion)}
 	}
 }
 

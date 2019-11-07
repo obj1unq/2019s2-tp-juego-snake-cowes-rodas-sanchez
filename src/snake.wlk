@@ -20,7 +20,7 @@ object snake {
 		crecimiento += 2
 	}
 	
-	method controlarBordes() {
+	method controlarBordes() { //REVISAR
 		if (position.x() == 9) { position = game.at(0, position.y()) }
 		else if (position.y() == 9) { position = game.at(position.x(), 0) }
 		else if (position.x() == -1) { position = game.at(8, position.y()) }
@@ -49,25 +49,25 @@ object primerElementoDelCuerpo{
 }
 
 object norte {
-	//const direccionOpuesta = sur
+	const property direccionOpuesta = sur
 	
 	method nuevaPosicion(snake) = snake.position().up(1)
 }
 
 object sur {
-	//const direccionOpuesta = norte
+	const property direccionOpuesta = norte
 	
 	method nuevaPosicion(snake) = snake.position().down(1)
 }
 
 object este {
-	//const direccionOpuesta = oeste
+	const property direccionOpuesta = oeste
 	
 	method nuevaPosicion(snake) = snake.position().right(1)
 }
 
 object oeste {
-	//const direccionOpuesta = este
+	const property direccionOpuesta = este
 	
 	method nuevaPosicion(snake) = snake.position().left(1)
 }
