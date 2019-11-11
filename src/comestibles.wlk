@@ -10,13 +10,9 @@ object sanAntonio{
 	method esComidoPor(unaSnake){
 		unaSnake.crecer(self.crecimientoOtorgado())
 		game.removeVisual(self)
-		aparicionDeElementos.mostrarNuevoElemento()
-		
-	}
-	method crecimientoOtorgado() {
-		return 2
+		aparicionDeElementos.mostrarNuevoElemento()	
 	}
 	
-	
+	method crecimientoOtorgado() = 2
 	
 }

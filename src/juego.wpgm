@@ -12,7 +12,7 @@ program snake {
 	game.ground("ground.png")
 	config.configurarTeclas()
 
-	game.onTick(250, "Movimiento del Snake", {
+	game.onTick(200, "Movimiento del Snake", {
 		snake.actualizarMovimiento()
 		primerElementoDelCuerpo.actualizarMovimiento()
 		cola.actualizarMovimiento()	

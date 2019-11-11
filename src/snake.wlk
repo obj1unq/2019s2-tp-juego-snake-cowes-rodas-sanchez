@@ -6,7 +6,7 @@ import aparicionesDeElementos.*
 object snake {
 	var property direccionDeMovimiento = norte
 	var property position = game.center()
-	var property image = "cabezaFalopa.png"
+	var property image = "cabezaRandom.png"
 	var property crecimiento = 0
 	var property ultimaPosicion = game.center()
 
@@ -20,16 +20,16 @@ object snake {
 		crecimiento += 2
 	}
 
-	method controlarBordes() { // REVISAR, SE BUGGEA SI JUSTO ME MUEVO EN EL BORDE
-		if (position.x() == 9) { position = game.at(-1, position.y()) }
-		else if (position.y() == 9) { position = game.at(position.x(), -1) }
-		else if (position.x() == -1) { position = game.at(9, position.y()) }
-		else if (position.y() == -1) { position = game.at(position.x(), 9) }
+	method controlarBordes() {
+		if (position.x() > 8) { position = game.at(0, position.y()) }
+		else if (position.y() > 8) { position = game.at(position.x(), 0) }
+		else if (position.x() < 0) { position = game.at(8, position.y()) }
+		else if (position.y() < 0) { position = game.at(position.x(), 8) }
 	}
 }
 
 object cola{
-	var property image="cuerpoColaFalopa.png"
+	var property image="cuerpoColaRandom.png"
     var property position = primerElementoDelCuerpo.ultimaPosicion()	
 	
 	method actualizarMovimiento(){
@@ -38,7 +38,7 @@ object cola{
 }
 
 object primerElementoDelCuerpo{
-	const property image = "cuerpoColaFalopa.png"
+	const property image = "cuerpoColaRandom.png"
 	var property ultimaPosicion= game.center()
 	var property position = snake.ultimaPosicion()	
 	
