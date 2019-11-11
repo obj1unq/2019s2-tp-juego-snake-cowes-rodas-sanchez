@@ -11,20 +11,13 @@ object snake {
 	var property ultimaPosicion = game.center()
 
 	method actualizarMovimiento() {
-		    self.controlarBordes()
+		    config.controlarBordes()
 			ultimaPosicion = position
 			position = direccionDeMovimiento.nuevaPosicion(self)
 	}		
 	
 	method crecer(cantidadDePuntos){
 		crecimiento += 2
-	}
-
-	method controlarBordes() {
-		if (position.x() > 8) { position = game.at(0, position.y()) }
-		else if (position.y() > 8) { position = game.at(position.x(), 0) }
-		else if (position.x() < 0) { position = game.at(8, position.y()) }
-		else if (position.y() < 0) { position = game.at(position.x(), 8) }
 	}
 }
 
