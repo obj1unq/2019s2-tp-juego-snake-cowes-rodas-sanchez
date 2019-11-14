@@ -5,6 +5,13 @@ import comestibles.*
 import aparicionesDeElementos.*
 import direcciones.*
 
+// Bugs:
+	//a veces se crean dos ardillas, de distintos tipos, en una misma posicion
+	//a veces se crean dos ardillas del mismo tipo en distintas posiciones.
+	//sigue sin comer cuando sale de un borde y la ardilla se encuentra justo cuando sale la cabeza
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 program snake {
 	//  CONFIG	

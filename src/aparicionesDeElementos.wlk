@@ -23,6 +23,7 @@ object aparicionDeElementos {
 	}
 
 	method unaPosicionAleatoria() {
+		
 		return (game.at(self.posicionX(), self.posicionY()))
 	}
 
