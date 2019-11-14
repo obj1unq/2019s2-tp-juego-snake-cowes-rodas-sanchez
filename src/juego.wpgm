@@ -8,6 +8,7 @@ import direcciones.*
 // Bugs:
 	//a veces se crean dos ardillas, de distintos tipos, en una misma posicion
 	//a veces se crean dos ardillas del mismo tipo en distintas posiciones.
+	//pueden pasar las dos anteriores
 	//sigue sin comer cuando sale de un borde y la ardilla se encuentra justo cuando sale la cabeza
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,9 +20,8 @@ program snake {
 	config.configurarTablero(15,15)
 	game.ground("ground.png")
 	config.configurarTeclas()
-
 	game.onTick(100, "Movimiento del Snake", {
-		snake.actualizarMovimiento()
+	snake.actualizarMovimiento()
 	})
 
 	//  VISUALES

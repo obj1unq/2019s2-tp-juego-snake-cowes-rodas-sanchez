@@ -10,6 +10,7 @@ class Comestibles {
 	var property position = game.at(4, 5)
 	var property image = ""
 	var property esLaMuerte=false
+	
 
 	method esComidoPor(unaSnake) {
 		game.removeVisual(self)
@@ -38,14 +39,16 @@ class ArdillaComun inherits Comestibles {
 }
 
 class ArdillaDobleCabeza inherits Comestibles {
+	
 
-	override method image() = "dobleArdilla.png"
+	override method image() = "ardillaDobleCabeza.png"
 
 	override method puntosOtorgado() = 4
 
 }
 
 class ArdillaDeLaMuerte inherits Comestibles {
+	
 
 	override method image() = "laMuerte.png"
 
@@ -55,9 +58,9 @@ class ArdillaDeLaMuerte inherits Comestibles {
 	}
 
 	override method mostrateYActuaEn(unaPosicion){
-	var nuevaArdilLaMuerte = new ArdillaDeLaMuerte()
-		game.addVisualIn(nuevaArdilLaMuerte,unaPosicion)
-		ardillasPeligrosas.agregarArdillaPeligrosa(nuevaArdilLaMuerte)
+		var nuevaArdilla = new ArdillaDeLaMuerte()
+		game.addVisualIn(nuevaArdilla,unaPosicion)
+		ardillasPeligrosas.agregarArdillaPeligrosa(nuevaArdilla)
 		aparicionDeElementos.mostrarNuevoElemento()
 		
 	}
