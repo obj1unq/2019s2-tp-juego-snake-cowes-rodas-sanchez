@@ -8,6 +8,7 @@ class Comestibles {
 
 	var property position = game.at(4, 5)
 	var property image = "squirrels3.png"
+	var property esLaMuerte=false
 
 	method esComidoPor(unaSnake) {
 		game.removeVisual(self)
@@ -15,6 +16,10 @@ class Comestibles {
 	}
 
 	method puntosOtorgado() = 0
+	
+	method mostrateYActuaEn(unaPosicion){
+		game.addVisualIn(self, unaPosicion)
+	}
 
 }
 
@@ -48,6 +53,12 @@ class ArdillaDeLaMuerte inherits Comestibles {
 		game.stop()
 	}
 
+	override method mostrateYActuaEn(unaPosicion){
+	var nuevaArdilLaMuerte = new ArdillaDeLaMuerte()
+		game.addVisualIn(nuevaArdilLaMuerte,unaPosicion)
+		aparicionDeElementos.mostrarNuevoElemento()
+		
+	}
 }
 
 //Crear un objeto para cada una de las ardillas. 
