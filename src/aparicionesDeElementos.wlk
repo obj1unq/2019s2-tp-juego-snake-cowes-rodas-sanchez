@@ -4,11 +4,15 @@ import configuracion.*
 import snake.*
 import direcciones.*
 
-const ardillaComun = new ArdillaComun()const ardillaHevy = new ArdillaDobleCabeza()const ardillaDeLaMuerte = new ArdillaDeLaMuerte()
+const ardillaComun = new ArdillaComun()
+const ardillaHevy = new ArdillaDobleCabeza()
+const ardillaDeLaMuerte = new ArdillaDeLaMuerte()
+const ardillaMataMuerte = new ArdillaMataArdillasMuertas()
 
 object aparicionDeElementos {
-
-	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte ]
+	var property ancho=0
+	var property alto=0
+	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte,ardillaMataMuerte ]
 
 	method mostrarNuevoElemento() {
 		self.seleccionarElementoAMostrar().mostrateYActuaEn(self.unaPosicionAleatoria())
@@ -23,12 +27,16 @@ object aparicionDeElementos {
 	}
 
 	method posicionX() {
-		return 0.randomUpTo(9)
+		return 0.randomUpTo(ancho)
 	}
 
 	method posicionY() {
-		return 0.randomUpTo(9)
+		return 0.randomUpTo(alto)
 	}
 
+	method dimensionDelTablero(unAncho,unaAltura){
+		ancho=unAncho
+		alto=unaAltura
+	}
 }
 

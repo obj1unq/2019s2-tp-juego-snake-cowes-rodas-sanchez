@@ -2,6 +2,7 @@ import snake.*
 import wollok.game.*
 import comestibles.*
 import direcciones.*
+import aparicionesDeElementos.*
 
 object config {
 	method configurarTeclas() {
@@ -22,6 +23,12 @@ object config {
 		else if (snake.position().x() < 0) { snake.position(game.at(14, snake.position().y())) }
 		else if (snake.position().y() < 0) { snake.position(game.at(snake.position().x(), 14)) }
 	}
+	
+	method configurarTablero(ancho,alto){
+		game.width(ancho)
+		game.height(alto)
+		aparicionDeElementos.dimensionDelTablero(ancho,alto)
+	}
 }
 
 object configurarColiciones{
@@ -29,3 +36,4 @@ object configurarColiciones{
 		game.onCollideDo(snake,{algo=>algo.esComidoPor(snake)})
 	}
 } 
+

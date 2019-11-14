@@ -24,7 +24,6 @@ object snake {
 	}
 
 	method crecer(cantidadDePuntos) {
-	//Aca habria que modificar cuerpo.add(creadorDeElemento.generarParteDelCuerpo() para que sea el ali)
 		crecimiento += cantidadDePuntos
 		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
 	}

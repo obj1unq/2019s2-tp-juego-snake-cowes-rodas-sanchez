@@ -3,11 +3,12 @@ import snake.*
 import configuracion.*
 import aparicionesDeElementos.*
 import direcciones.*
+import ardillasPeligrosas.*
 
 class Comestibles {
 
 	var property position = game.at(4, 5)
-	var property image = "squirrels3.png"
+	var property image = ""
 	var property esLaMuerte=false
 
 	method esComidoPor(unaSnake) {
@@ -25,7 +26,7 @@ class Comestibles {
 
 class ArdillaComun inherits Comestibles {
 
-	override method image() = "squirrels4.png"
+	override method image() = "ardillaComun.png"
 
 	override method puntosOtorgado() = 2
 
@@ -56,9 +57,26 @@ class ArdillaDeLaMuerte inherits Comestibles {
 	override method mostrateYActuaEn(unaPosicion){
 	var nuevaArdilLaMuerte = new ArdillaDeLaMuerte()
 		game.addVisualIn(nuevaArdilLaMuerte,unaPosicion)
+		ardillasPeligrosas.agregarArdillaPeligrosa(nuevaArdilLaMuerte)
 		aparicionDeElementos.mostrarNuevoElemento()
 		
 	}
+	
+	method fuisteEliminado(){
+		game.removeVisual(self)
+	}
 }
 
-//Crear un objeto para cada una de las ardillas. 
+class ArdillaMataArdillasMuertas inherits Comestibles{
+	override method image(){
+		return "ardillaMataArdillasMuertas.png"
+	}
+	
+	override method esComidoPor(unaSnake){
+		ardillasPeligrosas.eliminarAAlguien()
+		super(unaSnake)
+	}
+	
+	
+}
+

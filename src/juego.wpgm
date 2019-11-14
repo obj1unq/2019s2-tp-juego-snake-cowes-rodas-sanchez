@@ -9,8 +9,7 @@ import direcciones.*
 program snake {
 	//  CONFIG	
 	game.title("Snake")
-	game.height(15)
-	game.width(15)
+	config.configurarTablero(15,15)
 	game.ground("ground.png")
 	config.configurarTeclas()
 
