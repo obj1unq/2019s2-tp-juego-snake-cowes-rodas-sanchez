@@ -5,10 +5,11 @@ import snake.*
 import direcciones.*
 
 const ardillaComun = new ArdillaComun()
-const ardillaHevy = new Ardillafiera()
+const ardillaHevy = new ArdillaDobleCabeza()
+const ardillaDeLaMuerte = new ArdillaDeLaMuerte()
 
 object aparicionDeElementos {
-	const elementosAMostrar=[ardillaComun, ardillaHevy]
+	const elementosAMostrar=[ardillaComun, ardillaHevy,ardillaDeLaMuerte]
 
 	method mostrarNuevoElemento(){
 		game.addVisualIn(self.seleccionarElementoAMostrar(), self.unaPosicionAleatoria())

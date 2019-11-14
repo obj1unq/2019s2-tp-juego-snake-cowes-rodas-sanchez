@@ -4,6 +4,8 @@ import configuracion.*
 import aparicionesDeElementos.*
 import direcciones.*
 
+const primerElementoDelCuerpo=new PrimerElementoDelCuerpo()
+
 object snake {
 
 	var property direccionDeMovimiento = norte
@@ -17,30 +19,27 @@ object snake {
 		config.controlarBordes()
 		ultimaPosicion = position
 		position = direccionDeMovimiento.nuevaPosicion(self)
-		cuerpo.forEach{ parte => parte.actualizarMovimiento()}
-		cola.actualizarMovimiento()
+		cuerpo.forEach{ parte => parte.actualizarMovimiento(self)}
+		cola.actualizarMovimiento(self)
 	}
 
 	method crecer(cantidadDePuntos) {
-		crecimiento += 2
+	//Aca habria que modificar cuerpo.add(creadorDeElemento.generarParteDelCuerpo() para que sea el ali)
+		crecimiento += cantidadDePuntos
 		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
-		cola.crecioSnake()
 	}
 
 }
 
 object cola {
 
+	// La cola es necesaria ya que de esta ultima parte del cuerpo depende el agregar una nueva parte del cuerpo
 	var property image = "cuerpoColaRandom.png"
 	var property position = snake.cuerpo().last().ultimaPosicion()
 	var property ultimaPosicion = position
 
-	method actualizarMovimiento() {
-		position = snake.cuerpo().last().ultimaPosicion()
-	}
-	
-	method crecioSnake(){
-		position = ultimaPosicion
+	method actualizarMovimiento(unaSnake) {
+		position = unaSnake.cuerpo().last().ultimaPosicion()
 	}
 
 }
@@ -52,8 +51,8 @@ class ParteDelCuerpo {
 	var property position = game.at(1, 1)
 	const property posicionEnElCuerpo = 0
 
-	method actualizarMovimiento() {
-		self. posicionarEnElTablero(snake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1}))
+	method actualizarMovimiento(unaSnake) {
+		self.posicionarEnElTablero(self.posicionDeLaParteDelCuerpoAnterior(unaSnake))
 	}
 
 	method posicionarEnElTablero(unaParteDelCuerpo) {
@@ -61,20 +60,20 @@ class ParteDelCuerpo {
 		position = unaParteDelCuerpo.ultimaPosicion()
 	}
 
-}
-
-object primerElementoDelCuerpo {
-
-	const property image = "cuerpoColaRandom.png"
-	var property ultimaPosicion = game.center()
-	var property position = game.center()
-	const property posicionEnElCuerpo = 0
-
-	method actualizarMovimiento() {
-		ultimaPosicion = position
-		position = snake.ultimaPosicion()
+	method posicionDeLaParteDelCuerpoAnterior(unaSnake) {
+		return unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1 })
 	}
 
+}
+
+class PrimerElementoDelCuerpo inherits ParteDelCuerpo{
+
+	// Esto es necesario para que la lista del cuerpo no sea vacia
+
+	override method actualizarMovimiento(unaSnake) {
+		ultimaPosicion = position
+		position = unaSnake.ultimaPosicion()
+	}
 
 }
 
@@ -88,9 +87,7 @@ object creadorDeElemento {
 		return elemento
 	}
 
-	method crearPosicionEnElcuerpo(cuerpo) {
-		return cuerpo.last().posicionEnElCuerpo() + 1
-	}
+	method crearPosicionEnElcuerpo(cuerpo) = cuerpo.last().posicionEnElCuerpo() + 1
 
 	method agregarImagen() {
 		game.addVisual(elemento)

@@ -20,7 +20,6 @@ program snake {
 
 	//  VISUALES
  	game.addVisual(snake)
- 	game.showAttributes(snake)
  	game.addVisual(primerElementoDelCuerpo)
  	game.addVisual(cola)
  	game.addVisual(ardillaComun)
