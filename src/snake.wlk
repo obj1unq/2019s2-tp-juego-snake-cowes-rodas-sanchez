@@ -2,65 +2,99 @@ import wollok.game.*
 import comestibles.*
 import configuracion.*
 import aparicionesDeElementos.*
+import direcciones.*
 
 object snake {
+
 	var property direccionDeMovimiento = norte
 	var property position = game.center()
 	var property image = "cabezaRandom.png"
 	var property crecimiento = 0
 	var property ultimaPosicion = game.center()
+	var property cuerpo = [ primerElementoDelCuerpo ]
 
 	method actualizarMovimiento() {
-		    config.controlarBordes()
-			ultimaPosicion = position
-			position = direccionDeMovimiento.nuevaPosicion(self)
-	}		
-	
-	method crecer(cantidadDePuntos){
+		config.controlarBordes()
+		ultimaPosicion = position
+		position = direccionDeMovimiento.nuevaPosicion(self)
+		cuerpo.forEach{ parte => parte.actualizarMovimiento()}
+		cola.actualizarMovimiento()
+	}
+
+	method crecer(cantidadDePuntos) {
 		crecimiento += 2
+		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
+		cola.crecioSnake()
 	}
+
 }
 
-object cola{
-	var property image="cuerpoColaRandom.png"
-    var property position = primerElementoDelCuerpo.ultimaPosicion()	
+object cola {
+
+	var property image = "cuerpoColaRandom.png"
+	var property position = snake.cuerpo().last().ultimaPosicion()
+	var property ultimaPosicion = position
+
+	method actualizarMovimiento() {
+		position = snake.cuerpo().last().ultimaPosicion()
+	}
 	
-	method actualizarMovimiento(){
-		position = primerElementoDelCuerpo.ultimaPosicion()
+	method crecioSnake(){
+		position = ultimaPosicion
 	}
+
 }
 
-object primerElementoDelCuerpo{
+class ParteDelCuerpo {
+
 	const property image = "cuerpoColaRandom.png"
-	var property ultimaPosicion= game.center()
-	var property position = snake.ultimaPosicion()	
-	
-	method actualizarMovimiento(){
+	var property ultimaPosicion = game.at(1, 1)
+	var property position = game.at(1, 1)
+	const property posicionEnElCuerpo = 0
+
+	method actualizarMovimiento() {
+		self. posicionarEnElTablero(snake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1}))
+	}
+
+	method posicionarEnElTablero(unaParteDelCuerpo) {
+		ultimaPosicion = position
+		position = unaParteDelCuerpo.ultimaPosicion()
+	}
+
+}
+
+object primerElementoDelCuerpo {
+
+	const property image = "cuerpoColaRandom.png"
+	var property ultimaPosicion = game.center()
+	var property position = game.center()
+	const property posicionEnElCuerpo = 0
+
+	method actualizarMovimiento() {
 		ultimaPosicion = position
 		position = snake.ultimaPosicion()
 	}
+
+
 }
 
-object norte {
-	const property direccionOpuesta = sur
-	
-	method nuevaPosicion(snake) = snake.position().up(1)
+object creadorDeElemento {
+
+	var property elemento
+
+	method generarParteDelCuerpo() {
+		elemento = new ParteDelCuerpo(posicionEnElCuerpo = self.crearPosicionEnElcuerpo(snake.cuerpo()), position = cola.ultimaPosicion())
+		self.agregarImagen()
+		return elemento
+	}
+
+	method crearPosicionEnElcuerpo(cuerpo) {
+		return cuerpo.last().posicionEnElCuerpo() + 1
+	}
+
+	method agregarImagen() {
+		game.addVisual(elemento)
+	}
+
 }
 
-object sur {
-	const property direccionOpuesta = norte
-	
-	method nuevaPosicion(snake) = snake.position().down(1)
-}
-
-object este {
-	const property direccionOpuesta = oeste
-	
-	method nuevaPosicion(snake) = snake.position().right(1)
-}
-
-object oeste {
-	const property direccionOpuesta = este
-	
-	method nuevaPosicion(snake) = snake.position().left(1)
-}

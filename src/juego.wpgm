@@ -3,6 +3,8 @@ import snake.*
 import configuracion.*
 import comestibles.*
 import aparicionesDeElementos.*
+import direcciones.*
+
 
 program snake {
 	//  CONFIG	
@@ -14,8 +16,6 @@ program snake {
 
 	game.onTick(100, "Movimiento del Snake", {
 		snake.actualizarMovimiento()
-		primerElementoDelCuerpo.actualizarMovimiento()
-		cola.actualizarMovimiento()	
 	})
 
 	//  VISUALES
@@ -23,7 +23,7 @@ program snake {
  	game.showAttributes(snake)
  	game.addVisual(primerElementoDelCuerpo)
  	game.addVisual(cola)
- 	game.addVisual(sanAntonio)
+ 	game.addVisual(ardillaComun)
  	
 
  	//  COMIENZA
