@@ -1,7 +1,7 @@
 import snake.*
 import wollok.game.*
 import comestibles.*
-
+import direcciones.*
 
 object config {
 	method configurarTeclas() {

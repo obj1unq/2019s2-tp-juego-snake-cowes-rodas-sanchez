@@ -2,9 +2,13 @@ import wollok.game.*
 import comestibles.*
 import configuracion.*
 import snake.*
+import direcciones.*
+
+const ardillaComun = new ArdillaComun()
+const ardillaHevy = new Ardillafiera()
 
 object aparicionDeElementos {
-	const elementosAMostrar=[sanAntonio]
+	const elementosAMostrar=[ardillaComun, ardillaHevy]
 
 	method mostrarNuevoElemento(){
 		game.addVisualIn(self.seleccionarElementoAMostrar(), self.unaPosicionAleatoria())
