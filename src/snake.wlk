@@ -10,7 +10,7 @@ object snake {
 
 	var property direccionDeMovimiento = norte
 	var property position = game.center()
-	var property image = "cabezaRandom.png"
+	var property image = "Cabezas/CabezaArriba.png"
 	var property crecimiento = 0
 	var property ultimaPosicion = game.center()
 	var property cuerpo = [ primerElementoDelCuerpo ]
@@ -33,7 +33,7 @@ object snake {
 object cola {
 
 	// La cola es necesaria ya que de esta ultima parte del cuerpo depende el agregar una nueva parte del cuerpo
-	var property image = "cuerpoColaRandom.png"
+	var property image = "Colas/ColaArriba.png"
 	var property position = snake.cuerpo().last().ultimaPosicion()
 	var property ultimaPosicion = position
 
@@ -45,7 +45,7 @@ object cola {
 
 class ParteDelCuerpo {
 
-	const property image = "cuerpoColaRandom.png"
+	const property image = "Cuerpos/CuerpoRecto.png"
 	var property ultimaPosicion = game.at(1, 1)
 	var property position = game.at(1, 1)
 	const property posicionEnElCuerpo = 0

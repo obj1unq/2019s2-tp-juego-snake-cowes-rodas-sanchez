@@ -27,7 +27,7 @@ class Comestibles {
 
 class ArdillaComun inherits Comestibles {
 
-	override method image() = "ardillaComun.png"
+	override method image() = "Ardillas/ardillaComun.png"
 
 	override method puntosOtorgado() = 2
 
@@ -41,7 +41,7 @@ class ArdillaComun inherits Comestibles {
 class ArdillaDobleCabeza inherits Comestibles {
 	
 
-	override method image() = "ardillaDobleCabeza.png"
+	override method image() = "Ardillas/ardillaDobleCabeza.png"
 
 	override method puntosOtorgado() = 4
 
@@ -50,7 +50,7 @@ class ArdillaDobleCabeza inherits Comestibles {
 class ArdillaDeLaMuerte inherits Comestibles {
 	
 
-	override method image() = "laMuerte.png"
+	override method image() = "Ardillas/laMuerte.png"
 
 	override method esComidoPor(unaSnake) {
 		game.say(snake, "estoy Muerto")
@@ -72,7 +72,7 @@ class ArdillaDeLaMuerte inherits Comestibles {
 
 class ArdillaMataArdillasMuertas inherits Comestibles{
 	override method image(){
-		return "ardillaMataArdillasMuertas.png"
+		return "Ardillas/ardillaMataArdillasMuertas.png"
 	}
 	
 	override method esComidoPor(unaSnake){
