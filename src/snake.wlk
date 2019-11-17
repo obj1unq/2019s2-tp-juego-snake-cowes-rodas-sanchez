@@ -45,7 +45,7 @@ object cola {
 
 class ParteDelCuerpo {
 
-	const property image = "Cuerpos/CuerpoRecto.png"
+	var property image = "Cuerpos/CuerpoRecto.png"
 	var property ultimaPosicion = game.at(1, 1)
 	var property position = game.at(1, 1)
 	const property posicionEnElCuerpo = 0
@@ -60,6 +60,7 @@ class ParteDelCuerpo {
 	}
 
 	method posicionDeLaParteDelCuerpoAnterior(unaSnake) {
+		
 		return unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1 })
 	}
 
