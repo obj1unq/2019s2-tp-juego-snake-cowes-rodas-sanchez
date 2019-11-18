@@ -10,11 +10,11 @@ object snake {
 
 	var property direccionDeMovimiento = norte
 	var property position = game.center()
-	var property image = "Cabezas/CabezaArriba.png"
 	var property crecimiento = 0
 	var property ultimaPosicion = game.center()
 	var property cuerpo = [ primerElementoDelCuerpo ]
 
+    method image() = direccionDeMovimiento.imagenDeCabeza()
 	method actualizarMovimiento() {
 		config.controlarBordes()
 		ultimaPosicion = position
