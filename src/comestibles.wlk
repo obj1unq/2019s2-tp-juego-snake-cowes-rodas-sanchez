@@ -19,7 +19,7 @@ class Comestibles {
 
 	method puntosOtorgado() = 0
 	
-	method mostrateYActuaEn(unaPosicion){
+	method mostrateYActuaEn(unaPosicion) {
 		game.addVisualIn(self, unaPosicion)
 	}
 

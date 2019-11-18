@@ -12,7 +12,7 @@ const ardillaMataMuerte = new ArdillaMataArdillasMuertas()
 object aparicionDeElementos {
 	var property ancho=0
 	var property alto=0
-	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte,ardillaMataMuerte ]
+	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte, ardillaMataMuerte ]
 
 	method mostrarNuevoElemento() {
 		self.seleccionarElementoAMostrar().mostrateYActuaEn(self.unaPosicionAleatoria())

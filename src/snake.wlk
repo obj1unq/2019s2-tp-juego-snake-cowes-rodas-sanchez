@@ -27,7 +27,6 @@ object snake {
 		crecimiento += cantidadDePuntos
 		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
 	}
-
 }
 
 object cola {
@@ -44,14 +43,15 @@ object cola {
 }
 
 class ParteDelCuerpo {
-
-	var property image = "Cuerpos/CuerpoRecto.png"
-	var property ultimaPosicion = game.at(1, 1)
-	var property position = game.at(1, 1)
+	
+	var property ultimaPosicion = game.at(-1, -1)
+	var property position = game.at(-1, -1)
 	const property posicionEnElCuerpo = 0
 
+    method image() = snake.direccionDeMovimiento().imagenDeCuerpo()
+	
 	method actualizarMovimiento(unaSnake) {
-		self.posicionarEnElTablero(self.posicionDeLaParteDelCuerpoAnterior(unaSnake))
+		 self.posicionarEnElTablero(self.posicionDeLaParteDelCuerpoAnterior(unaSnake))
 	}
 
 	method posicionarEnElTablero(unaParteDelCuerpo) {
@@ -59,10 +59,8 @@ class ParteDelCuerpo {
 		position = unaParteDelCuerpo.ultimaPosicion()
 	}
 
-	method posicionDeLaParteDelCuerpoAnterior(unaSnake) {
-		
-		return unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1 })
-	}
+	method posicionDeLaParteDelCuerpoAnterior(unaSnake) =
+	 unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == self.posicionEnElCuerpo() - 1 })
 
 }
 
