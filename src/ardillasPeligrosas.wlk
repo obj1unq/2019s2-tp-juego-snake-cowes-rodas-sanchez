@@ -9,19 +9,17 @@ object ardillasPeligrosas {
 	
 	method agregarArdillaPeligrosa(unaArdilla){
 		conjuntoDeArdillas.add(unaArdilla)
-	
 	}
 	
 	method eliminarAAlguien(){
-		
-		if (conjuntoDeArdillas.isEmpty()){
+		if (conjuntoDeArdillas.isEmpty()) {
 			aparicionDeElementos.mostrarNuevoElemento()
-			
 		}
+		
 		else {
 			elementoSeleccionado=conjuntoDeArdillas.anyOne()
 			elementoSeleccionado.fuisteEliminado()
 			conjuntoDeArdillas.remove(elementoSeleccionado)
-			}
+		}
 	}
 }

@@ -20,6 +20,7 @@ class Comestibles {
 	method puntosOtorgado() = 0
 	
 	method mostrateYActuaEn(unaPosicion) {
+		// game.getObjectsIn(unaPosicion) podria funcionar para evitar que aparezcan dos objetos en la misma posicion?
 		game.addVisualIn(self, unaPosicion)
 	}
 

@@ -11,6 +11,7 @@ object norte {
 	method nuevaPosicion(snake) = snake.position().up(1)
 	method imagenDeCabeza() = "Cabezas/CabezaArriba.png"
 	method imagenDeCuerpo() = "Cuerpos/CuerpoRecto.png"
+	method imagenDeCola() = "Colas/ColaArriba.png"
 
 }
 
@@ -21,6 +22,7 @@ object sur {
 	method nuevaPosicion(snake) = snake.position().down(1)
 	method imagenDeCabeza() = "Cabezas/CabezaAbajo.png"
 	method imagenDeCuerpo() = "Cuerpos/CuerpoRecto.png"
+	method imagenDeCola() = "Colas/ColaAbajo.png"
 
 }
 
@@ -31,6 +33,7 @@ object este {
 	method nuevaPosicion(snake) = snake.position().right(1)
 	method imagenDeCabeza() = "Cabezas/CabezaDerecha.png"
 	method imagenDeCuerpo() = "Cuerpos/CuerpoCostado.png"
+	method imagenDeCola() = "Colas/ColaDerecha.png"
 
 }
 
@@ -41,6 +44,7 @@ object oeste {
 	method nuevaPosicion(snake) = snake.position().left(1)
 	method imagenDeCabeza() = "Cabezas/CabezaIzquierda.png"
 	method imagenDeCuerpo() = "Cuerpos/CuerpoCostado.png"
+	method imagenDeCola() = "Colas/ColaIzquierda.png"
 
 }
 

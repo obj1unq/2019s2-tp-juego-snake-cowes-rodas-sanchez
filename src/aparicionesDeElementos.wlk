@@ -18,24 +18,14 @@ object aparicionDeElementos {
 		self.seleccionarElementoAMostrar().mostrateYActuaEn(self.unaPosicionAleatoria())
 	}
 
-	method seleccionarElementoAMostrar() {
-		return elementosAMostrar.anyOne()
-	}
+	method seleccionarElementoAMostrar() = elementosAMostrar.anyOne()
 
-	method unaPosicionAleatoria() {
-		
-		return (game.at(self.posicionX(), self.posicionY()))
-	}
+	method unaPosicionAleatoria() = game.at(self.posicionX(), self.posicionY())
 
-	method posicionX() {
-		return 0.randomUpTo(ancho)
-	}
+	method posicionX() = 0.randomUpTo(ancho)
+    method posicionY() = 0.randomUpTo(alto)
 
-	method posicionY() {
-		return 0.randomUpTo(alto)
-	}
-
-	method dimensionDelTablero(unAncho,unaAltura){
+	method dimensionDelTablero(unAncho,unaAltura) {
 		ancho=unAncho
 		alto=unaAltura
 	}
