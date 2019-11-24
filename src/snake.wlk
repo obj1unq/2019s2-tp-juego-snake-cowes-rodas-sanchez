@@ -27,6 +27,10 @@ object snake {
 		crecimiento += cantidadDePuntos
 		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
 	}
+	
+	method esComidoPor(unaSnake){
+		game.stop()
+	}
 }
 
 object cola {

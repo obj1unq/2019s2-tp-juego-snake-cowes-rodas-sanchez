@@ -10,24 +10,45 @@ const ardillaDeLaMuerte = new ArdillaDeLaMuerte()
 const ardillaMataMuerte = new ArdillaMataArdillasMuertas()
 
 object aparicionDeElementos {
-	var property ancho=0
-	var property alto=0
+
+	var property ancho = 0
+	var property alto = 0
 	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte, ardillaMataMuerte ]
+	var property elementoPresenteEnElMapa = []
 
 	method mostrarNuevoElemento() {
 		self.seleccionarElementoAMostrar().mostrateYActuaEn(self.unaPosicionAleatoria())
 	}
 
-	method seleccionarElementoAMostrar() = elementosAMostrar.anyOne()
-
-	method unaPosicionAleatoria() = game.at(self.posicionX(), self.posicionY())
-
-	method posicionX() = 0.randomUpTo(ancho)
-    method posicionY() = 0.randomUpTo(alto)
-
-	method dimensionDelTablero(unAncho,unaAltura) {
-		ancho=unAncho
-		alto=unaAltura
+	method seleccionarElementoAMostrar() {
+		var elementoSeleccionado = elementosAMostrar.anyOne()
+		if (self.elementoSeleccionadoYaEstaUbicado(elementoSeleccionado)) {
+			return self.seleccionarElementoAMostrar()
+		} else {
+			return elementoSeleccionado
+		}
 	}
+
+	method elementoSeleccionadoYaEstaUbicado(unElemento) {
+		return elementoPresenteEnElMapa.contains(unElemento)
+	}
+
+	method unaPosicionAleatoria() {
+		var x = 0.randomUpTo(ancho)
+		var y = 0.randomUpTo(alto)
+		if (game.getObjectsIn(game.at(x, y)).isEmpty()) {
+			return (game.at(x, y))
+		} else {
+			return self.unaPosicionAleatoria()
+		}
+	}
+
+	method dimensionDelTablero(unAncho, unaAltura) {
+		ancho = unAncho
+		alto = unaAltura
+	
+	
+	}
+
 }
 
