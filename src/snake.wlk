@@ -68,7 +68,7 @@ class ParteDelCuerpo {
 	var property position = game.at(-1, -1)
 	const property posicionEnElCuerpo = 0
 
-    method image() = direccionDeMovimiento.imagenDeCuerpo()
+    method image() = direccionDeMovimiento.imagenDeCuerpo(self)
 	
 	method actualizarMovimiento(unaSnake) {
 		self.posicionarEnElTablero(self.posicionDeLaParteDelCuerpoAnterior(unaSnake))

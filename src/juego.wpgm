@@ -18,7 +18,7 @@ program snake {
 	config.configurarTablero(10,10)
 	game.ground("ground.png")
 	config.configurarTeclas()
-	game.onTick(200, "Movimiento del Snake", {
+	game.onTick(500, "Movimiento del Snake", {
 	snake.actualizarMovimiento()
 	})
 

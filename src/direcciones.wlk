@@ -13,10 +13,23 @@ object norte {
 	method nuevaPosicion(snake) = snake.position().up(1)
 	
 	method imagenDeCabeza() = "Cabezas/CabezaArriba.png"
-	method imagenDeCuerpo() = "Cuerpos/CuerpoRecto.png"
+	method imagenDeCuerpo(parteDelCuerpo) {
+		if(parteDelCuerpo.ultimaDireccion()==self){
+			return "Cuerpos/CuerpoRecto.png"		
+		}else{
+			return self.imagenGiroDerecha(parteDelCuerpo)
+		}
+	 	
+	}
 	method imagenDeCola() = "Colas/ColaArriba.png"
-	method imagenGiroDerecha() = "Giros/Giro2.png"
-	method imagenGiroIzquierda() = "Giros/Giro3.png"
+	method imagenGiroDerecha(parteDelCuerpo) {
+		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
+			return "Giros/Giro3.png"
+		} else{
+			return self.imagenGiroIzquierda()
+		}
+	}
+	method imagenGiroIzquierda() = "Giros/Giro2.png"
 
 }
 
@@ -29,10 +42,22 @@ object sur {
 	method nuevaPosicion(snake) = snake.position().down(1)
 	
 	method imagenDeCabeza() = "Cabezas/CabezaAbajo.png"
-	method imagenDeCuerpo() = "Cuerpos/CuerpoRecto.png"
+	method imagenDeCuerpo(parteDelCuerpo) {
+		if(parteDelCuerpo.ultimaDireccion()==self){
+			return "Cuerpos/CuerpoRecto.png"
+		}else{
+			return self.imagenGiroDerecha(parteDelCuerpo)
+		}
+	} 
 	method imagenDeCola() = "Colas/ColaAbajo.png"
-	method imagenGiroDerecha() = "Giros/Giro4.png"
-	method imagenGiroIzquierda() = "Giros/Giro1.png"
+	method imagenGiroDerecha(parteDelCuerpo) {
+		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
+			return "Giros/Giro1.png"
+		}else{
+			return self.imagenGiroIzquierda()
+		}
+	} 
+	method imagenGiroIzquierda() = "Giros/Giro4.png" 
 
 }
 
@@ -45,10 +70,22 @@ object este {
 	method nuevaPosicion(snake) = snake.position().right(1)
 	
 	method imagenDeCabeza() = "Cabezas/CabezaDerecha.png"
-	method imagenDeCuerpo() = "Cuerpos/CuerpoCostado.png"
+	method imagenDeCuerpo(parteDelCuerpo) {
+		if (parteDelCuerpo.ultimaDireccion()==self){
+			return "Cuerpos/CuerpoCostado.png"
+		}else{
+			return self.imagenGiroDerecha(parteDelCuerpo)
+		}
+	} 
 	method imagenDeCola() = "Colas/ColaDerecha.png"
-	method imagenGiroDerecha() = "Giros/Giro3.png"
-	method imagenGiroIzquierda() = "Giros/Giro4.png"
+	method imagenGiroDerecha(parteDelCuerpo) {
+		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
+			return"Giros/Giro4.png"
+		}else{
+			return self.imagenGiroIzquierda()
+		}
+	} 
+	method imagenGiroIzquierda() = "Giros/Giro3.png" 
 
 }
 
@@ -61,10 +98,23 @@ object oeste {
 	method nuevaPosicion(snake) = snake.position().left(1)
 	
 	method imagenDeCabeza() = "Cabezas/CabezaIzquierda.png"
-	method imagenDeCuerpo() = "Cuerpos/CuerpoCostado.png"
+	method imagenDeCuerpo(parteDelCuerpo) {
+		if (parteDelCuerpo.ultimaDireccion()==self){
+			return "Cuerpos/CuerpoCostado.png" 
+		}else {
+			return self.imagenGiroDerecha(parteDelCuerpo)
+		}
+	} 
 	method imagenDeCola() = "Colas/ColaIzquierda.png"
-	method imagenGiroDerecha() = "Giros/Giro1.png"
-	method imagenGiroIzquierda() = "Giros/Giro2.png"
+	method imagenGiroDerecha(parteDelCuerpo) {
+		if (parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
+			return"Giros/Giro2.png"
+		}else{
+			return self.imagenGiroIzquierda()
+		}
+	} 
+	method imagenGiroIzquierda() = "Giros/Giro1.png" 
 
 }
+
 
