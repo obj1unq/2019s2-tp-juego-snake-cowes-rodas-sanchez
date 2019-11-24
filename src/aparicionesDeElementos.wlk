@@ -14,23 +14,13 @@ object aparicionDeElementos {
 	var property ancho = 0
 	var property alto = 0
 	const elementosAMostrar = [ ardillaComun, ardillaHevy, ardillaDeLaMuerte, ardillaMataMuerte ]
-	var property elementoPresenteEnElMapa = []
 
 	method mostrarNuevoElemento() {
 		self.seleccionarElementoAMostrar().mostrateYActuaEn(self.unaPosicionAleatoria())
 	}
 
 	method seleccionarElementoAMostrar() {
-		var elementoSeleccionado = elementosAMostrar.anyOne()
-		if (self.elementoSeleccionadoYaEstaUbicado(elementoSeleccionado)) {
-			return self.seleccionarElementoAMostrar()
-		} else {
-			return elementoSeleccionado
-		}
-	}
-
-	method elementoSeleccionadoYaEstaUbicado(unElemento) {
-		return elementoPresenteEnElMapa.contains(unElemento)
+		return elementosAMostrar.anyOne()
 	}
 
 	method unaPosicionAleatoria() {
@@ -46,8 +36,6 @@ object aparicionDeElementos {
 	method dimensionDelTablero(unAncho, unaAltura) {
 		ancho = unAncho
 		alto = unaAltura
-	
-	
 	}
 
 }
