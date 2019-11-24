@@ -43,6 +43,12 @@ class ArdillaDobleCabeza inherits Comestibles {
 	
 
 	override method image() = "Ardillas/ardillaDobleCabeza.png"
+	
+	override method esComidoPor(unaSnake){
+		super(unaSnake)
+		unaSnake.crecer(self.puntosOtorgado())
+		unaSnake.crecer(self.puntosOtorgado())
+	}
 
 	override method puntosOtorgado() = 4
 
