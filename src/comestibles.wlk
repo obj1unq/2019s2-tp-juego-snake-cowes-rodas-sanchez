@@ -9,8 +9,6 @@ class Comestibles {
 
 	var property position = game.at(4, 5)
 	var property image = ""
-	var property esLaMuerte=false
-	
 
 	method esComidoPor(unaSnake) {
 		game.removeVisual(self)
@@ -20,7 +18,6 @@ class Comestibles {
 	method puntosOtorgado() = 0
 	
 	method mostrateYActuaEn(unaPosicion) {
-		// game.getObjectsIn(unaPosicion) podria funcionar para evitar que aparezcan dos objetos en la misma posicion?
 		game.addVisualIn(self, unaPosicion)
 	}
 
@@ -55,8 +52,6 @@ class ArdillaDobleCabeza inherits Comestibles {
 }
 
 class ArdillaDeLaMuerte inherits Comestibles {
-	
-
 	override method image() = "Ardillas/laMuerte.png"
 
 	override method esComidoPor(unaSnake) {
@@ -80,6 +75,14 @@ class ArdillaDeLaMuerte inherits Comestibles {
 class ArdillaMataArdillasMuertas inherits Comestibles{
 	override method image(){
 		return "Ardillas/ardillaMataArdillasMuertas.png"
+	}
+	
+	override method mostrateYActuaEn(unaPosicion) {
+		if (ardillasPeligrosas.conjuntoDeArdillas().isEmpty()) {
+		    aparicionDeElementos.mostrarNuevoElemento()
+		} else {
+			super(unaPosicion)
+		}
 	}
 	
 	override method esComidoPor(unaSnake){

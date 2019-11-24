@@ -12,14 +12,8 @@ object ardillasPeligrosas {
 	}
 	
 	method eliminarAAlguien(){
-		if (conjuntoDeArdillas.isEmpty()) {
-			aparicionDeElementos.mostrarNuevoElemento()
-		}
-		
-		else {
 			elementoSeleccionado=conjuntoDeArdillas.anyOne()
 			elementoSeleccionado.fuisteEliminado()
 			conjuntoDeArdillas.remove(elementoSeleccionado)
-		}
 	}
 }
