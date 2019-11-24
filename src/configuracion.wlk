@@ -24,14 +24,14 @@ object config {
 	}
 
 	method controlarBordes() { // SIGUE PRESENTANDO PROBLEMAS AL PASAR DE UN BORDE AL OTRO, PRECISAMENTE CUANDO HAY COMIDA EN ESE EXTREMO DEL BORDE
-		if (snake.position().x() > ancho) {
+		if (snake.position().x() > ancho - 1) {
 			snake.position(game.at(0, snake.position().y()))
-		} else if (snake.position().y() > alto) {
+		} else if (snake.position().y() > alto - 1) {
 			snake.position(game.at(snake.position().x(), 0))
 		} else if (snake.position().x() < 0) {
-			snake.position(game.at(ancho, snake.position().y()))
+			snake.position(game.at(ancho - 1, snake.position().y()))
 		} else if (snake.position().y() < 0) {
-			snake.position(game.at(snake.position().x(), alto))
+			snake.position(game.at(snake.position().x(), alto - 1))
 		}
 	}
 
