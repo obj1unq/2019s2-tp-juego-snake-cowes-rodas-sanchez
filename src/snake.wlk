@@ -100,8 +100,6 @@ class PrimerElementoDelCuerpo inherits ParteDelCuerpo{
 	override method actualizarMovimiento(unaSnake) {
 		ultimaPosicion = position
 		position = unaSnake.ultimaPosicion()
-		ultimaDireccion = direccionDeMovimiento
-		direccionDeMovimiento = snake.ultimaDireccion()		
 		self.actualizarDireccion(unaSnake)
 	}
 
