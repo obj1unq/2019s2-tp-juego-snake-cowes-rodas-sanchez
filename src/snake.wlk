@@ -47,6 +47,10 @@ object cola {
 	}
 	
 	method actualizarDireccion(unaDireccion) { direccionDeMovimiento = unaDireccion }
+	
+	method esComidoPor(unaSnake){
+		game.stop()
+	}
 
 }
 
@@ -76,6 +80,9 @@ class ParteDelCuerpo {
 	method posicionDeLaParteDelCuerpoAnterior(unaSnake) =
 	 unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == posicionEnElCuerpo - 1 })
 
+	method esComidoPor(unaSnake){
+		game.stop()
+	}
 }
 
 class PrimerElementoDelCuerpo inherits ParteDelCuerpo{

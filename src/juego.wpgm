@@ -17,7 +17,7 @@ import direcciones.*
 program snake {
 	//  CONFIG	
 	game.title("Snake")
-	config.configurarTablero(15,15)
+	config.configurarTablero(10,10)
 	game.ground("ground.png")
 	config.configurarTeclas()
 	game.onTick(100, "Movimiento del Snake", {
