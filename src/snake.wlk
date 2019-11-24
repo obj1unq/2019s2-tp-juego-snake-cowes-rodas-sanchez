@@ -9,15 +9,18 @@ const primerElementoDelCuerpo=new PrimerElementoDelCuerpo()
 object snake {
 
 	var property direccionDeMovimiento = norte
+	var property ultimaDireccion = norte
 	var property position = game.center()
 	var property crecimiento = 0
 	var property ultimaPosicion = game.center()
 	var property cuerpo = [ primerElementoDelCuerpo ]
 
     method image() = direccionDeMovimiento.imagenDeCabeza()
+    
 	method actualizarMovimiento() {
 		config.controlarBordes()
 		ultimaPosicion = position
+		ultimaDireccion = direccionDeMovimiento
 		position = direccionDeMovimiento.nuevaPosicion(self)
 		cuerpo.forEach{ parte => parte.actualizarMovimiento(self)}
 		cola.actualizarMovimiento(self)
@@ -28,8 +31,12 @@ object snake {
 		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
 	}
 	
-	method esComidoPor(unaSnake){
+	method esComidoPor(unaSnake) {
 		game.stop()
+	}
+	
+	method girarAl(unaDireccion) {
+		
 	}
 }
 
@@ -42,11 +49,10 @@ object cola {
 
     method image() = direccionDeMovimiento.imagenDeCola()
 	method actualizarMovimiento(unaSnake) {
-		position = unaSnake.cuerpo().last().ultimaPosicion()
-		self.actualizarDireccion(unaSnake.cuerpo().last().direccionDeMovimiento())
+		const ultimaParteDelCuerpo = unaSnake.cuerpo().last()
+		position = ultimaParteDelCuerpo.ultimaPosicion()
+		direccionDeMovimiento = ultimaParteDelCuerpo.ultimaDireccion()
 	}
-	
-	method actualizarDireccion(unaDireccion) { direccionDeMovimiento = unaDireccion }
 	
 	method esComidoPor(unaSnake){
 		game.stop()
@@ -57,6 +63,7 @@ object cola {
 class ParteDelCuerpo {
 	
 	var property direccionDeMovimiento = norte
+	var property ultimaDireccion = norte
 	var property ultimaPosicion = game.at(-1, -1) // Si se inicia dentro del tablero aparece por un milisegundo la imagen, por eso es mejor que inicie por fuera 
 	var property position = game.at(-1, -1)
 	const property posicionEnElCuerpo = 0
@@ -74,7 +81,8 @@ class ParteDelCuerpo {
 	}
 	
 	method actualizarDireccion(unaParteDelCuerpo) {
-		direccionDeMovimiento = unaParteDelCuerpo.direccionDeMovimiento()
+		ultimaDireccion = direccionDeMovimiento
+		direccionDeMovimiento = unaParteDelCuerpo.ultimaDireccion()
 	}
 
 	method posicionDeLaParteDelCuerpoAnterior(unaSnake) =
@@ -92,6 +100,8 @@ class PrimerElementoDelCuerpo inherits ParteDelCuerpo{
 	override method actualizarMovimiento(unaSnake) {
 		ultimaPosicion = position
 		position = unaSnake.ultimaPosicion()
+		ultimaDireccion = direccionDeMovimiento
+		direccionDeMovimiento = snake.ultimaDireccion()		
 		self.actualizarDireccion(unaSnake)
 	}
 
