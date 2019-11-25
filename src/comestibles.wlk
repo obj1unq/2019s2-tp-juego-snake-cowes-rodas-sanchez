@@ -4,6 +4,8 @@ import configuracion.*
 import aparicionesDeElementos.*
 import direcciones.*
 import ardillasPeligrosas.*
+import inicio.*
+import niveles.*
 
 class Comestibles {
 
@@ -56,8 +58,8 @@ class ArdillaDeLaMuerte inherits Comestibles {
 	override method image() = "Ardillas/laMuerte.png"
 
 	override method esComidoPor(unaSnake) {
-		game.say(snake, "Estoy Muerto")
-		game.stop()
+		pantallaDeInicio.nuevoInicio()
+		
 	}
 
 	override method mostrateYActuaEn(unaPosicion){

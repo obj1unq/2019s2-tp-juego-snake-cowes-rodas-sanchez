@@ -104,11 +104,7 @@ class ParteDelCuerpo {
 	method esComidoPor(unaSnake){
 		pantallaDeInicio.nuevoInicio()
 	}
-	
-	method reposicionar(){
-		position = game.at(-1, -1)
-		
-	}
+
 }
 
 class PrimerElementoDelCuerpo inherits ParteDelCuerpo{
