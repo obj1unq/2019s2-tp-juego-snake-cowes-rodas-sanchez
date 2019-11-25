@@ -8,13 +8,12 @@ import aparicionesDeElementos.*
 object nivel1 {
 
 	method iniciar(){
-	game.clear()
+	game.removeVisual(pantallaDeInicio)
 	// CONFIG	
 	game.title("Snake")
-	config.configurarTablero(10,10)
+	config.configurarTablero(15,15)
 	game.ground("ground.png")
-	config.configurarTeclas()
-	game.onTick(500, "Movimiento del Snake", {
+	game.onTick(250, "Movimiento del Snake", {
 	snake.actualizarMovimiento()
 	})
 
@@ -27,8 +26,6 @@ object nivel1 {
 
  	//  COMIENZA
 	configurarColiciones.coliciones()
-	game.start()
-	
 	}
 	
 }

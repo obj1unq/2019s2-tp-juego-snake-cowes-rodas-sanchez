@@ -16,8 +16,8 @@ import inicio.*
 program snake {
 	game.width(15)
 	game.height(15)
-	config.configurarTeclas()
+	//config.configurarTeclas()
 	pantallaDeInicio.inicio()
-	
+
 	
 } 
