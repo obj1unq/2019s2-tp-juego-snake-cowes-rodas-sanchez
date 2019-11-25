@@ -5,11 +5,8 @@ import snake.*
 import wollok.game.*
 
 object norte {
-
+	var property giro
 	method direccionOpuesta() = sur
-	method giroDerecha() = este
-	method giroIzquierda() = oeste
-
 	method nuevaPosicion(snake) = snake.position().up(1)
 	
 	method imagenDeCabeza() = "Cabezas/CabezaArriba.png"
@@ -23,21 +20,20 @@ object norte {
 	}
 	method imagenDeCola() = "Colas/ColaArriba.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
-			return "Giros/Giro3.png"
+		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
+			return "Giros/NorteAEste.png"
 		} else{
 			return self.imagenGiroIzquierda()
 		}
 	}
-	method imagenGiroIzquierda() = "Giros/Giro2.png"
+	method imagenGiroIzquierda() = "Giros/NorteAOeste.png"
 
 }
 
 object sur {
-
+	var property giro
 	method direccionOpuesta() = norte
-	method giroDerecha() = oeste
-	method giroIzquierda() = este
+
 
 	method nuevaPosicion(snake) = snake.position().down(1)
 	
@@ -51,21 +47,20 @@ object sur {
 	} 
 	method imagenDeCola() = "Colas/ColaAbajo.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
-			return "Giros/Giro1.png"
+		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
+			return "Giros/NorteAOeste.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/Giro4.png" 
+	method imagenGiroIzquierda() = "Giros/NorteAEste.png" 
 
 }
 
 object este {
-	
+	var property giro
 	method direccionOpuesta() = oeste
-	method giroDerecha() = sur
-	method giroIzquierda() = norte
+	
 
 	method nuevaPosicion(snake) = snake.position().right(1)
 	
@@ -79,21 +74,20 @@ object este {
 	} 
 	method imagenDeCola() = "Colas/ColaDerecha.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
-			return"Giros/Giro4.png"
+		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
+			return"Giros/NorteAEste.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/Giro3.png" 
+	method imagenGiroIzquierda() = "Giros/SurAOeste.png" 
 
 }
 
 object oeste {
-
+	var property giro
 	method direccionOpuesta() = este
-	method giroDerecha() = norte
-	method giroIzquierda() = sur
+
 
 	method nuevaPosicion(snake) = snake.position().left(1)
 	
@@ -107,13 +101,13 @@ object oeste {
 	} 
 	method imagenDeCola() = "Colas/ColaIzquierda.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if (parteDelCuerpo.ultimaDireccion()==self.giroDerecha()){
-			return"Giros/Giro2.png"
+		if (parteDelCuerpo.ultimaDireccion()==self.giro()){
+			return"Giros/NorteOeste.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/Giro1.png" 
+	method imagenGiroIzquierda() = "Giros/SurAOeste.png" 
 
 }
 

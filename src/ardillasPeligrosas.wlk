@@ -16,4 +16,8 @@ object ardillasPeligrosas {
 			elementoSeleccionado.fuisteEliminado()
 			conjuntoDeArdillas.remove(elementoSeleccionado)
 	}
+	
+	method borrarTodasLasArdillas(){
+		conjuntoDeArdillas.forEach({ardilla =>conjuntoDeArdillas.remove(ardilla)})
+	}
 }

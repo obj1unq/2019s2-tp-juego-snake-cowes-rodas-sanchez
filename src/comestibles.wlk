@@ -59,6 +59,7 @@ class ArdillaDeLaMuerte inherits Comestibles {
 
 	override method esComidoPor(unaSnake) {
 		pantallaDeInicio.nuevoInicio()
+		ardillasPeligrosas.borrarTodasLasArdillas()
 		
 	}
 

@@ -37,7 +37,7 @@ object snake {
 	}
 	
 	method girarAl(unaDireccion) {
-		
+		ultimaDireccion.giro(unaDireccion)
 	}
 	
 	method reposicionar (){
