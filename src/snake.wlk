@@ -39,6 +39,14 @@ object snake {
 	method girarAl(unaDireccion) {
 		
 	}
+	
+	method reposicionar (){
+		position = game.center()
+		puntos=0
+		cuerpo.forEach({parte => cuerpo.remove(parte)})
+		cuerpo.add(primerElementoDelCuerpo)
+		cola.reposicionar()
+	}
 }
 
 object cola {
@@ -56,7 +64,11 @@ object cola {
 	}
 	
 	method esComidoPor(unaSnake){
-		pantallaDeInicio.inicio()
+		pantallaDeInicio.nuevoInicio()
+	}
+	
+	method reposicionar(){
+		position = snake.cuerpo().last().ultimaPosicion()
 	}
 
 }
@@ -90,7 +102,12 @@ class ParteDelCuerpo {
 	 	unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == posicionEnElCuerpo - 1 })
 
 	method esComidoPor(unaSnake){
-		pantallaDeInicio.inicio()
+		pantallaDeInicio.nuevoInicio()
+	}
+	
+	method reposicionar(){
+		position = game.at(-1, -1)
+		
 	}
 }
 

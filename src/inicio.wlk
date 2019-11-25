@@ -1,7 +1,7 @@
 import wollok.game.*
 import niveles.*
 import configuracion.*
-
+import snake.*
 object pantallaDeInicio {
 
 	var property position = game.origin()
@@ -18,8 +18,9 @@ object pantallaDeInicio {
 	}
 
 	method nuevoInicio() {
-		nivel1.alto()
+		game.clear()
 		game.addVisual(self)
+		snake.reposicionar()
 		config.configurarTeclas()
 	}
 

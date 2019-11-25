@@ -28,8 +28,6 @@ object nivel1 {
 	configurarColiciones.coliciones()
 	}
 	
-	method alto(){
-		game.clear()
-	}
+	
 	
 }
