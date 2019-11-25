@@ -1,9 +1,6 @@
 import wollok.game.*
 import snake.*
-import configuracion.*
 import aparicionesDeElementos.*
-import direcciones.*
-import ardillasPeligrosas.*
 import inicio.*
 import niveles.*
 
@@ -19,7 +16,7 @@ class Comestibles {
 	}
 
 	method puntosOtorgado() = 0
-	
+
 	method mostrateYActuaEn(unaPosicion) {
 		game.addVisualIn(self, unaPosicion)
 	}
@@ -40,11 +37,10 @@ class ArdillaComun inherits Comestibles {
 }
 
 class ArdillaDobleCabeza inherits Comestibles {
-	
 
 	override method image() = "Ardillas/ardillaDobleCabeza.png"
-	
-	override method esComidoPor(unaSnake){
+
+	override method esComidoPor(unaSnake) {
 		super(unaSnake)
 		unaSnake.crecer()
 		unaSnake.crecer()
@@ -55,45 +51,66 @@ class ArdillaDobleCabeza inherits Comestibles {
 }
 
 class ArdillaDeLaMuerte inherits Comestibles {
+
 	override method image() = "Ardillas/laMuerte.png"
 
 	override method esComidoPor(unaSnake) {
 		pantallaDeInicio.nuevoInicio()
 		ardillasPeligrosas.borrarTodasLasArdillas()
-		
 	}
 
-	override method mostrateYActuaEn(unaPosicion){
+	override method mostrateYActuaEn(unaPosicion) {
 		var nuevaArdilla = new ArdillaDeLaMuerte()
-		game.addVisualIn(nuevaArdilla,unaPosicion)
+		game.addVisualIn(nuevaArdilla, unaPosicion)
 		ardillasPeligrosas.agregarArdillaPeligrosa(nuevaArdilla)
 		aparicionDeElementos.mostrarNuevoElemento()
-		
 	}
-	
-	method fuisteEliminado(){
+
+	method fuisteEliminado() {
 		game.removeVisual(self)
 	}
+
 }
 
-class ArdillaMataArdillasMuertas inherits Comestibles{
-	override method image(){
+class ArdillaMataArdillasMuertas inherits Comestibles {
+
+	override method image() {
 		return "Ardillas/ardillaMataArdillasMuertas.png"
 	}
-	
+
 	override method mostrateYActuaEn(unaPosicion) {
 		if (ardillasPeligrosas.conjuntoDeArdillas().isEmpty()) {
-		    aparicionDeElementos.mostrarNuevoElemento()
+			aparicionDeElementos.mostrarNuevoElemento()
 		} else {
 			super(unaPosicion)
 		}
 	}
-	
-	override method esComidoPor(unaSnake){
+
+	override method esComidoPor(unaSnake) {
 		ardillasPeligrosas.eliminarAAlguien()
 		super(unaSnake)
 	}
-	
-	
+
+}
+
+object ardillasPeligrosas {
+
+	var property conjuntoDeArdillas = []
+	var elementoSeleccionado
+
+	method agregarArdillaPeligrosa(unaArdilla) {
+		conjuntoDeArdillas.add(unaArdilla)
+	}
+
+	method eliminarAAlguien() {
+		elementoSeleccionado = conjuntoDeArdillas.anyOne()
+		elementoSeleccionado.fuisteEliminado()
+		conjuntoDeArdillas.remove(elementoSeleccionado)
+	}
+
+	method borrarTodasLasArdillas() {
+		conjuntoDeArdillas.forEach({ ardilla => conjuntoDeArdillas.remove(ardilla)})
+	}
+
 }
 

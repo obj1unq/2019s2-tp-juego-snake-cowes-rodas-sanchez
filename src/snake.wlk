@@ -1,6 +1,7 @@
 import wollok.game.*
 import configuracion.*
 import direcciones.*
+import inicio.*
 
 const primerElementoDelCuerpo=new PrimerElementoDelCuerpo()
 
