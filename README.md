@@ -1,6 +1,6 @@
 ### Snake
 
-![capturaJuego](assets/InicioSnakeFinal.png)
+![capturaJuego](assets/InicioSnakeFINAL.png)
 
 #### Grupo: SnakeGame
 
