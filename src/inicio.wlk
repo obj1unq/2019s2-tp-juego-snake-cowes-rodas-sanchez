@@ -5,7 +5,7 @@ import snake.*
 object pantallaDeInicio {
 
 	var property position = game.origin()
-	var property image = "InicioSnakeFINALchico.png"
+	var property image = "InicioSnakeFINAL.png"
 
 	method inicio() {
 		// CONFIG	

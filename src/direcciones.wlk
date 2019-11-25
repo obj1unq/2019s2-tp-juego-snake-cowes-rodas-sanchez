@@ -21,12 +21,12 @@ object norte {
 	method imagenDeCola() = "Colas/ColaArriba.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
 		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
-			return "Giros/AbajoADerecha.png"
+			return "Giros/ArribaAIzquierda.png"
 		} else{
 			return self.imagenGiroIzquierda()
 		}
 	}
-	method imagenGiroIzquierda() = "Giros/AbajoAIzquierda.png"
+	method imagenGiroIzquierda() = "Giros/ArribaADerecha.png"
 
 }
 
@@ -53,7 +53,7 @@ object sur {
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/ArribaAIzquierda.png" 
+	method imagenGiroIzquierda() = "Giros/AbajoDerecha.png" 
 
 }
 
@@ -75,12 +75,12 @@ object este {
 	method imagenDeCola() = "Colas/ColaDerecha.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
 		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
-			return"Giros/ArribaAIzquierda.png"
+			return"Giros/AbajoADerecha.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/AbajoAIzquierda.png" 
+	method imagenGiroIzquierda() = "Giros/ArribaADerecha.png" 
 
 }
 
@@ -102,12 +102,12 @@ object oeste {
 	method imagenDeCola() = "Colas/ColaIzquierda.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
 		if (parteDelCuerpo.ultimaDireccion()==self.giro()){
-			return"Giros/ArribaADerecha.png"
+			return"Giros/AbajoAIzquierda.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/AbajoADerecha.png" 
+	method imagenGiroIzquierda() = "Giros/ArribaAIzquierda.png" 
 
 }
 
