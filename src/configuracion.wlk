@@ -3,6 +3,8 @@ import wollok.game.*
 import comestibles.*
 import direcciones.*
 import aparicionesDeElementos.*
+import inicio.*
+import niveles.*
 
 object config {
 
@@ -15,7 +17,7 @@ object config {
 		keyboard.up().onPressDo({ self.controlarMovimiento(norte)})
 		keyboard.down().onPressDo({ self.controlarMovimiento(sur)})
 		keyboard.q().onPressDo({game.stop()})
-		//keyboard.enter().onPressDo({game.removeVisual(pantallaDeInicio)})
+		keyboard.enter().onPressDo({nivel1.iniciar()})
 	}
 
 	method controlarMovimiento(direccion) {

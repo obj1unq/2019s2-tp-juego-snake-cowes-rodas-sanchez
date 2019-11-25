@@ -14,25 +14,10 @@ import inicio.*
 
 
 program snake {
-	//  CONFIG	
-	game.title("Snake")
-	config.configurarTablero(10,10)
-	game.ground("ground.png")
+	game.width(15)
+	game.height(15)
 	config.configurarTeclas()
-	game.onTick(500, "Movimiento del Snake", {
-	snake.actualizarMovimiento()
-	})
-
-	//  VISUALES
- 	game.addVisual(snake)
- 	game.addVisual(primerElementoDelCuerpo)
- 	game.addVisual(cola)
- 	game.addVisual(ardillaComun)
- 	
-
- 	//  COMIENZA
-	configurarColiciones.coliciones()
-	game.start()
+	pantallaDeInicio.inicio()
 	
 	
 } 
