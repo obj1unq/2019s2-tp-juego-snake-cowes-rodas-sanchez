@@ -75,7 +75,7 @@ object este {
 	method imagenDeCola() = "Colas/ColaDerecha.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
 		if(parteDelCuerpo.ultimaDireccion()==norte){
-			return"Giros/AbajoAIzquierda.png"
+			return"Giros/AbajoADerecha.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
