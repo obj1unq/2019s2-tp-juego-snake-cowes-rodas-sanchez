@@ -55,7 +55,7 @@ class ArdillaDeLaMuerte inherits Comestibles {
 	override method image() = "Ardillas/laMuerte.png"
 
 	override method esComidoPor(unaSnake) {
-		game.say(snake, "estoy Muerto")
+		game.say(snake, "Estoy Muerto")
 		game.stop()
 	}
 

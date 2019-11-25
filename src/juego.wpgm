@@ -4,6 +4,7 @@ import configuracion.*
 import comestibles.*
 import aparicionesDeElementos.*
 import direcciones.*
+import inicio.*
 
 // Bugs:
     // Aparece la ardillaMataArdillaMuerta primero y si no hay nada que pueda matar tira error

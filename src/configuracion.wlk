@@ -14,6 +14,8 @@ object config {
 		keyboard.right().onPressDo({ self.controlarMovimiento(este)})
 		keyboard.up().onPressDo({ self.controlarMovimiento(norte)})
 		keyboard.down().onPressDo({ self.controlarMovimiento(sur)})
+		keyboard.q().onPressDo({game.stop()})
+		//keyboard.enter().onPressDo({game.removeVisual(pantallaDeInicio)})
 	}
 
 	method controlarMovimiento(direccion) {
