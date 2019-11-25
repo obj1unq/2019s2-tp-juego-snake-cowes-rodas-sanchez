@@ -13,7 +13,7 @@ object nivel1 {
 	game.title("Snake")
 	config.configurarTablero(15,15)
 	game.ground("ground.png")
-	game.onTick(250, "Movimiento del Snake", {
+	game.onTick(100, "Movimiento del Snake", {
 	snake.actualizarMovimiento()
 	})
 

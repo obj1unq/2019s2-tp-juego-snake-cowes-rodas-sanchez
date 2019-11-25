@@ -1,21 +1,6 @@
 import wollok.game.*
-import snake.*
-import configuracion.*
-import comestibles.*
-import aparicionesDeElementos.*
-import direcciones.*
 import inicio.*
 
-// Bugs:
-    // Aparece la ardillaMataArdillaMuerta primero y si no hay nada que pueda matar tira error
-	//sigue sin comer cuando sale de un borde y la ardilla se encuentra justo cuando sale la cabeza
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 program snake {
-
 	pantallaDeInicio.inicio()
-
-	
-} 
+}
