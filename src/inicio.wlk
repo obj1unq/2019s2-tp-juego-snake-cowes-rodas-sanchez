@@ -2,6 +2,7 @@ import wollok.game.*
 import niveles.*
 import configuracion.*
 import snake.*
+
 object pantallaDeInicio {
 
 	var property position = game.origin()

@@ -1,9 +1,6 @@
 import wollok.game.*
-import comestibles.*
 import configuracion.*
-import aparicionesDeElementos.*
 import direcciones.*
-import inicio.*
 
 const primerElementoDelCuerpo=new PrimerElementoDelCuerpo()
 
@@ -29,7 +26,7 @@ object snake {
 
 	method sumarPuntos(cantidadDePuntos) {
 		puntos += cantidadDePuntos
-		game.say(self,"tengo: "+self.puntos()+" puntos")
+		game.say(self,"Tengo: "+self.puntos()+" puntos.")
 	}
 	
 	method crecer(){
@@ -51,7 +48,7 @@ object snake {
 
 object cola {
 
-	// La cola es necesaria ya que de esta ultima parte del cuerpo depende el agregar una nueva parte del cuerpo
+	// La cola es necesaria ya que de esta ultima parte del cuerpo depende el agregar una nueva parte del cuerpo.
 	var property direccionDeMovimiento = norte
 	var property position = snake.cuerpo().last().ultimaPosicion()
 	var property ultimaPosicion = position
@@ -77,7 +74,7 @@ class ParteDelCuerpo {
 	
 	var property direccionDeMovimiento = norte
 	var property ultimaDireccion = norte
-	var property ultimaPosicion = game.at(-1, -1) // Si se inicia dentro del tablero aparece por un milisegundo la imagen, por eso es mejor que inicie por fuera 
+	var property ultimaPosicion = game.at(-1, -1) // Si se inicia dentro del tablero aparece por un milisegundo la imagen, por eso es mejor que inicie por fuera. 
 	var property position = game.at(-1, -1)
 	const property posicionEnElCuerpo = 0
 
