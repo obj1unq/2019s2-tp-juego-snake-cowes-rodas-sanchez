@@ -31,7 +31,6 @@ object norte {
 }
 
 object sur {
-
 	method direccionOpuesta() = norte
 
 	method nuevaPosicion(snake) = snake.position().down(1)

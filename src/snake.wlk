@@ -17,12 +17,12 @@ object snake {
     method image() = direccionDeMovimiento.imagenDeCabeza()
     
 	method actualizarMovimiento() {
-		config.controlarBordes()
 		ultimaPosicion = position
 		ultimaDireccion = direccionDeMovimiento
 		position = direccionDeMovimiento.nuevaPosicion(self)
 		cuerpo.forEach{ parte => parte.actualizarMovimiento(self)}
 		cola.actualizarMovimiento(self)
+		config.controlarBordes()
 	}
 
 	method sumarPuntos(cantidadDePuntos) {
@@ -77,7 +77,8 @@ class ParteDelCuerpo {
 	var property ultimaDireccion = norte
 	var property ultimaPosicion = game.at(-1, -1) // Si se inicia dentro del tablero aparece por un milisegundo la imagen, por eso es mejor que inicie por fuera. 
 	var property position = game.at(-1, -1)
-	const property posicionEnElCuerpo = 0
+	//TODO: Pensar una relación entre objetos en donde ya se conozca a la parte del cuerpo que debe seguir, en vez de modelar eso con un número
+	const property posicionEnElCuerpo = 0 
 
     method image() = direccionDeMovimiento.imagenDeCuerpo(self)
 	
@@ -105,6 +106,7 @@ class ParteDelCuerpo {
 
 }
 
+//TODO: No podría ser una parte de cuerpo otro las otras?
 class PrimerElementoDelCuerpo inherits ParteDelCuerpo{
 
 	// Esto es necesario para que la lista del cuerpo no sea vacia

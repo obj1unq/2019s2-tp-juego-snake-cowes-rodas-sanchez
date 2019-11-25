@@ -22,6 +22,7 @@ object config {
 
 	method controlarMovimiento(direccion) {
 		if (snake.direccionDeMovimiento() == direccion.direccionOpuesta()) {
+			//TODO: Lanzar excepción?
 		} else {
 			snake.direccionDeMovimiento(direccion)
 		}

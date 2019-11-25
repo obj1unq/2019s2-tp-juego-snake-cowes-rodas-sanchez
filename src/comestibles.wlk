@@ -42,8 +42,7 @@ class ArdillaDobleCabeza inherits Comestibles {
 
 	override method esComidoPor(unaSnake) {
 		super(unaSnake)
-		unaSnake.crecer()
-		unaSnake.crecer()
+		2.times{ n => unaSnake.crecer() }
 	}
 
 	override method puntosOtorgado() = 2
