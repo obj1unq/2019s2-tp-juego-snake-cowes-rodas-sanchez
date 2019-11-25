@@ -5,7 +5,7 @@ import snake.*
 import wollok.game.*
 
 object norte {
-	var property giro
+
 	method direccionOpuesta() = sur
 	method nuevaPosicion(snake) = snake.position().up(1)
 	
@@ -20,7 +20,7 @@ object norte {
 	}
 	method imagenDeCola() = "Colas/ColaArriba.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
+		if(parteDelCuerpo.ultimaDireccion()==este){
 			return "Giros/ArribaAIzquierda.png"
 		} else{
 			return self.imagenGiroIzquierda()
@@ -31,7 +31,7 @@ object norte {
 }
 
 object sur {
-	var property giro
+	
 	method direccionOpuesta() = norte
 
 
@@ -47,18 +47,18 @@ object sur {
 	} 
 	method imagenDeCola() = "Colas/ColaAbajo.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
-			return "Giros/ArribaADerecha.png"
+		if(parteDelCuerpo.ultimaDireccion()==este){
+			return "Giros/AbajoAIzquierda.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
 	} 
-	method imagenGiroIzquierda() = "Giros/AbajoDerecha.png" 
+	method imagenGiroIzquierda() = "Giros/AbajoADerecha.png" 
 
 }
 
 object este {
-	var property giro
+
 	method direccionOpuesta() = oeste
 	
 
@@ -74,8 +74,8 @@ object este {
 	} 
 	method imagenDeCola() = "Colas/ColaDerecha.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if(parteDelCuerpo.ultimaDireccion()==self.giro()){
-			return"Giros/AbajoADerecha.png"
+		if(parteDelCuerpo.ultimaDireccion()==norte){
+			return"Giros/AbajoAIzquierda.png"
 		}else{
 			return self.imagenGiroIzquierda()
 		}
@@ -85,7 +85,7 @@ object este {
 }
 
 object oeste {
-	var property giro
+
 	method direccionOpuesta() = este
 
 
@@ -101,7 +101,7 @@ object oeste {
 	} 
 	method imagenDeCola() = "Colas/ColaIzquierda.png"
 	method imagenGiroDerecha(parteDelCuerpo) {
-		if (parteDelCuerpo.ultimaDireccion()==self.giro()){
+		if (parteDelCuerpo.ultimaDireccion()==norte){
 			return"Giros/AbajoAIzquierda.png"
 		}else{
 			return self.imagenGiroIzquierda()
