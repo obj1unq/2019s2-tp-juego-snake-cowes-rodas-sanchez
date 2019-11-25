@@ -14,7 +14,7 @@ Integrantes:
 
 Recreacion del clasico SnakeGame con algunos retoques personales.
 
--Teclas:
+#### Teclas:
 	
 Q(Salir)
 
@@ -28,14 +28,22 @@ Flecha Derecha(Cambiar direccion hacia derecha)
 
 Flecha Izquierda(Cambiar direccion hacia izquierda)
 	
--NPCs:
+#### NPCs:
 
-Ardilla Comun: Ardilla comun la cual te cruzas en un arbol. Puntos = 1
+Ardilla Comun: Ardilla comun la cual te cruzas en un arbol. 
 
-Ardilla Con Dos Cabezas: Ardilla modificada geneticamente para que posea 2 cabezas. Puntos = 2
+Puntos = 1
 
-Ardilla Muerta: Ardilla la cual no sabemos si murio por causas naturales pero esta aca para molestarnos en el camino. Puntos = 0
+Ardilla Con Dos Cabezas: Ardilla modificada geneticamente para que posea 2 cabezas. 
 
-Ardilla Vengadora: No ibamos a dejar que las ardillas muertas esten ahi para siempre. La Ardilla Vengadora esta aca para salvarnos. Puntos = 1
+Puntos = 2
+
+Ardilla Muerta: Ardilla la cual no sabemos si murio por causas naturales pero esta aca para molestarnos en el camino. 
+
+Puntos = 0
+
+Ardilla Vengadora: No ibamos a dejar que las ardillas muertas esten ahi para siempre. La Ardilla Vengadora esta aca para salvarnos. 
+
+Puntos = 1
 
 PD: No quedo para el casting de avengers. 
