@@ -1,6 +1,7 @@
 import wollok.game.*
 import niveles.*
 import configuracion.*
+import comestibles.*
 import snake.*
 
 object pantallaDeInicio {
@@ -23,6 +24,7 @@ object pantallaDeInicio {
 		game.addVisual(self)
 		snake.reposicionar()
 		config.configurarTeclas()
+		ardillasPeligrosas.borrarTodasLasArdillas()
 	}
 
 }
