@@ -30,17 +30,25 @@ Flecha Izquierda(Cambiar direccion hacia izquierda)
 	
 #### NPCs:
 
+![ArdillaComun](assets/Ardillas/ardillaComun.png)
+
 Ardilla Comun: Ardilla comun la cual te cruzas en un arbol. 
 
 Puntos = 1
+
+![ArdillaDosCabezas](assets/Ardillas/ardillaDobleCabeza.png)
 
 Ardilla Con Dos Cabezas: Ardilla modificada geneticamente para que posea 2 cabezas. 
 
 Puntos = 2
 
+![ArdillaMuerta](assets/Ardillas/laMuerte.png)
+
 Ardilla Muerta: Ardilla la cual no sabemos si murio por causas naturales pero esta aca para molestarnos en el camino. 
 
 Puntos = 0
+
+![ArdillaVengadora](assets/Ardillas/ardillaMataArdillasMuertas.png)
 
 Ardilla Vengadora: No ibamos a dejar que las ardillas muertas esten ahi para siempre. La Ardilla Vengadora esta aca para salvarnos. 
 
