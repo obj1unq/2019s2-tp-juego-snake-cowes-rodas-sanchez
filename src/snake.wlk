@@ -3,6 +3,7 @@ import comestibles.*
 import configuracion.*
 import aparicionesDeElementos.*
 import direcciones.*
+import inicio.*
 
 const primerElementoDelCuerpo=new PrimerElementoDelCuerpo()
 
@@ -11,7 +12,7 @@ object snake {
 	var property direccionDeMovimiento = norte
 	var property ultimaDireccion = norte
 	var property position = game.center()
-	var property crecimiento = 0
+	var property puntos = 0
 	var property ultimaPosicion = game.center()
 	var property cuerpo = [ primerElementoDelCuerpo ]
 
@@ -26,13 +27,13 @@ object snake {
 		cola.actualizarMovimiento(self)
 	}
 
-	method crecer(cantidadDePuntos) {
-		crecimiento += cantidadDePuntos
-		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
+	method sumarPuntos(cantidadDePuntos) {
+		puntos += cantidadDePuntos
+		game.say(self,"tengo: "+self.puntos()+" puntos")
 	}
 	
-	method esComidoPor(unaSnake) {
-		game.stop()
+	method crecer(){
+		cuerpo.add(creadorDeElemento.generarParteDelCuerpo())
 	}
 	
 	method girarAl(unaDireccion) {
@@ -55,7 +56,7 @@ object cola {
 	}
 	
 	method esComidoPor(unaSnake){
-		game.stop()
+		pantallaDeInicio.inicio()
 	}
 
 }
@@ -86,10 +87,10 @@ class ParteDelCuerpo {
 	}
 
 	method posicionDeLaParteDelCuerpoAnterior(unaSnake) =
-	 unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == posicionEnElCuerpo - 1 })
+	 	unaSnake.cuerpo().find({ unaParte => unaParte.posicionEnElCuerpo() == posicionEnElCuerpo - 1 })
 
 	method esComidoPor(unaSnake){
-		game.stop()
+		pantallaDeInicio.inicio()
 	}
 }
 

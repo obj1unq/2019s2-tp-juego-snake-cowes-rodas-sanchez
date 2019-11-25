@@ -8,8 +8,6 @@ object pantallaDeInicio {
 	
 	method inicio(){
 		//  CONFIG	
-	game.title("Snake")
-	config.configurarTeclas()
 	game.addVisual(self)
 	game.start()
 	}

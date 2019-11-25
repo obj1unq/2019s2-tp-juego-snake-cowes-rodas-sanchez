@@ -11,6 +11,7 @@ class Comestibles {
 	var property image = ""
 
 	method esComidoPor(unaSnake) {
+		unaSnake.sumarPuntos(self.puntosOtorgado())
 		game.removeVisual(self)
 		aparicionDeElementos.mostrarNuevoElemento()
 	}
@@ -27,11 +28,11 @@ class ArdillaComun inherits Comestibles {
 
 	override method image() = "Ardillas/ardillaComun.png"
 
-	override method puntosOtorgado() = 2
+	override method puntosOtorgado() = 1
 
 	override method esComidoPor(unaSnake) {
 		super(unaSnake)
-		unaSnake.crecer(self.puntosOtorgado())
+		unaSnake.crecer()
 	}
 
 }
@@ -43,11 +44,11 @@ class ArdillaDobleCabeza inherits Comestibles {
 	
 	override method esComidoPor(unaSnake){
 		super(unaSnake)
-		unaSnake.crecer(self.puntosOtorgado())
-		unaSnake.crecer(self.puntosOtorgado())
+		unaSnake.crecer()
+		unaSnake.crecer()
 	}
 
-	override method puntosOtorgado() = 4
+	override method puntosOtorgado() = 2
 
 }
 
